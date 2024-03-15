@@ -8,6 +8,7 @@ class Piso:
         self.ascensor = ascensor
         self.tiempo_de_apertura_ascensor = 5
 
+    #  #en esta funcion es que si es arriba significa true el usuario sube  y si arriba es false es que el usuario quiere bajar
     def llamar_ascensor(self, arriba):
         if arriba:
             self.boton_arriba = True
