@@ -8,7 +8,8 @@ class Piso:
         self.ascensor = ascensor
         self.tiempo_de_apertura_ascensor = 5
 
-    #  #en esta funcion es que si es arriba significa true el usuario sube  y si arriba es false es que el usuario quiere bajar
+    """ En esta funcion hace que si el ascensor va arriba significa true,
+        y si el usuario quiere bajar es false """
     def llamar_ascensor(self, arriba):
         if arriba:
             self.boton_arriba = True
@@ -19,6 +20,18 @@ class Piso:
             self.boton_abajo = True
             self.abrir_ascensor()
             self.boton_abajo = False
+
+    def get_ascensor_mas_cercano(self):
+        if not self.ascensores:
+            return None  # Manejar el caso en el que no haya ascensores disponibles
+        diferencia_de_pisos_real = float('inf')  # Inicializar con infinito para encontrar la mínima diferencia
+        ascensor_mas_cercano = None
+        for ascensor in self.ascensores:
+            diferencia_de_pisos = abs(ascensor.piso_actual - self.numero_piso)  # Utiliza valor absoluto
+            if diferencia_de_pisos < diferencia_de_pisos_real:
+                diferencia_de_pisos_real = diferencia_de_pisos
+                ascensor_mas_cercano = ascensor
+        return ascensor_mas_cercano
 
     def abrir_ascensor(self):
         print("<<<<<< ABRIR ASCENSOR >>>>>>")
