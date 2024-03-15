@@ -6,7 +6,7 @@ class Ascensor:
         self.abierto = False
 
     # Comprueba si el número del piso al que se desea ir es válido verifica si Nnumero de piso es mayor que los botones de piso
-    def ir_al_piso(self, numero_de_piso, ascensores):
+    def ir_al_piso(self, numero_de_piso):
         if numero_de_piso > len(self.botones_de_piso) - 1:
             print(f'Error!!! Este piso  {numero_de_piso} no existe en el edificio torre.')
             return
